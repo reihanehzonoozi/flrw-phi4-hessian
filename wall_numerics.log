@@ -1,0 +1,45 @@
+# Reference run of wall_numerics.py
+# python 3.12.3 | numpy 2.4.4 | scipy 1.17.1 | matplotlib 3.10.8 | Linux x86_64
+# ---------------------------------------------------------------
+
+
+(i) No centered radial interpolating solution on the noncompact sections.
+    Endpoint phi(30) reached by shooting from a regular center:
+      R^3  lambda= 1.0 : |phi(30)| <= 0.377  (never approaches +v)
+      R^3  lambda= 4.0 : |phi(30)| <= 0.188  (never approaches +v)
+      R^3  lambda=10.0 : |phi(30)| <= 0.119  (never approaches +v)
+      H^3  lambda= 1.0 : |phi(30)| <= 0.326  (never approaches +v)
+      H^3  lambda= 4.0 : |phi(30)| <= 0.000  (never approaches +v)
+      H^3  lambda=10.0 : |phi(30)| <= 0.000  (never approaches +v)
+    Consistent with the virial identity: for k = 0, -1 both
+    V(phi(0)) and int 2 ctn_k (phi')^2 are nonnegative and must sum
+    to zero, which forces phi' = 0.
+    Scope: centered, spherically symmetric profiles approaching one
+    vacuum at infinity.  The planar kink is regular on R^3 and lies
+    outside this class.
+
+(ii) Equatorial wall on S^3: existence threshold lambda v^2 a^2 = 3.
+     lambda   wall?     phi(0)
+       2.00   no       
+       2.90   no       
+       2.99   no       
+       3.01   yes      -0.081472
+       3.20   yes      -0.349975
+       4.00   yes      -0.675005
+       6.00   yes      -0.892472
+      10.00   yes      -0.977195
+     (the barrier-top solution phi = 0 has reduced spectrum
+      n^2 - lambda v^2 a^2 - 1; the antisymmetric n = 2 level
+      crosses zero at lambda v^2 a^2 = 3, where the wall bifurcates)
+
+(iii) The wall is a sphaleron: Morse index 1, threefold kernel.
+  (eigenvalues in units of a^{-2}; lambda varies, so not in units of lambda v^2)
+  lambda   E/(4 pi sigma)   j=0 levels                    j=1 lowest    j=2 lowest
+    3.20         0.7436   [-2.907   0.3957  5.404 ]     -1.58e-08     4.952
+    4.00         0.8060   [-2.6428  1.8974  7.0522]     -2.01e-08     4.791
+    6.00         0.8796   [-2.3456  5.3258 11.2304]     -2.79e-08     4.537
+   10.00         0.9314   [-2.1691 11.6666 19.4712]     -1.09e-07     4.310
+  E/(4 pi sigma) -> 1: the thin-wall energy is the tension times the
+  area 4 pi a^2 of a great two-sphere.  Exactly one negative s-wave
+  level; the j = 1 zero is the isometry mode, exact to the quoted
+  precision; j >= 2 strictly positive.
