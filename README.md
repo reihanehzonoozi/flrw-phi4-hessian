@@ -2,7 +2,7 @@
 
 This repository contains the numerical material accompanying the manuscript
 
-**R. Majid Zonoozi and M. Nadjafikhah, _Spatial curvature, boundary pinning and the $S^3$ sphaleron: the Hessian spectrum of $\phi^4$ interfaces in Friedmann–Lemaître–Robertson–Walker spacetimes_.**
+**R. Majid Zonoozi and M. Nadjafikhah, _Spatial curvature as a uniform spectral shift: the Hessian spectrum of boundary-pinned $\phi^4$ interfaces in Friedmann–Lemaître–Robertson–Walker spacetimes_.**
 
 The code implements the radial boundary-value problems, reduced Hessian spectra, Morse-index diagnostics, robustness checks, dynamical mode evolution, and the regular-wall/sphaleron calculation reported in the manuscript. The numerical workflow is deterministic and uses only NumPy, SciPy, and Matplotlib.
 
@@ -229,4 +229,4 @@ These distinctions should be preserved when using the code or quoting its numeri
 
 If this code contributes to published work, please cite the associated manuscript:
 
-> Reihaneh Majid Zonoozi and Mehdi Nadjafikhah, _Spatial curvature, boundary pinning and the $S^3$ sphaleron: the Hessian spectrum of $\phi^4$ interfaces in Friedmann–Lemaître–Robertson–Walker spacetimes_.
+> Reihaneh Majid Zonoozi and Mehdi Nadjafikhah, _Spatial curvature as a uniform spectral shift: the Hessian spectrum of boundary-pinned $\phi^4$ interfaces in Friedmann–Lemaître–Robertson–Walker spacetimes_.
