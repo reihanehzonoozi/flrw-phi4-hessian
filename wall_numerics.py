@@ -5,8 +5,9 @@ Regular, unpinned domain walls on the three FLRW spatial sections.
 
 Companion calculation to
 
-    "Spatial curvature, boundary pinning and the S^3 sphaleron: the Hessian
-     spectrum of phi^4 interfaces in Friedmann-Lemaitre-Robertson-Walker spacetimes"
+    "Spatial curvature as a uniform spectral shift: the Hessian spectrum of
+     boundary-pinned phi^4 interfaces in Friedmann-Lemaitre-Robertson-Walker
+     spacetimes"
 
 This script drops the inner Dirichlet datum of the main text and asks for
 genuine static solutions that are regular at every center and interpolate
