@@ -1,4 +1,4 @@
-# Numerical companion: FLRW curvature, boundary pinning, and the $S^3$ sphaleron
+# Spatial curvature as a uniform spectral shift: the Hessian spectrum of boundary-pinned $\phi^4$ interfaces in Friedmann–Lemaître–Robertson–Walker spacetimes
 
 This repository contains the numerical material accompanying the manuscript
 
@@ -70,7 +70,7 @@ chi_min = 1e-3
 lambda = v = a = 1
 ```
 
-The Morse index is the number of eigenvalues below `-1e-8`.
+In `flrw_numerics.py`, the numerical Morse index of the pinned Hessian counts eigenvalues below `-1e-8`. For the unpinned $S^3$ wall, the isometry zero modes are instead identified by their overlap with $\phi_0'$ and their behaviour under refinement, as described in the manuscript.
 
 The unpinned $S^3$ wall is obtained by regular shooting on one hemisphere and antisymmetric extension across the equator. Its low-lying fluctuation spectrum is again computed as a symmetric tridiagonal eigenproblem.
 
