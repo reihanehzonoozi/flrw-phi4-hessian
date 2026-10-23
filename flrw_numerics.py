@@ -511,25 +511,31 @@ def figures(outdir=FIG_DIR):
     # ---- figure 3: relaxation
     lmin = {k: hessian_spectrum(k)[0] for k in (1, 0, -1)}
     fig, ax = plt.subplots(1, 2, figsize=(11, 4.0))
+    ax[0].axvspan(0.5, np.pi / 2, color="0.85", alpha=0.35, zorder=0)
     for k in (1, 0, -1):
         sol = relaxation(k, lmin[k])
         t = np.linspace(0.5, np.pi / 2 if k == 1 else 10.0, 4000)
         ax[0].semilogy(t, np.abs(sol.sol(t)[0]) + 1e-40, dash[k],
-                       color=col[k], lw=1.5, label=lab[k])
+                       color=col[k], lw=1.5, label=lab[k],
+                       zorder=4 if k == 1 else 2)
+        if k == 1:
+            ax[0].plot(np.pi / 2, abs(sol.sol(np.pi / 2)[0]), "o",
+                       color=col[k], ms=4.5, zorder=5)
     t = np.linspace(0.5, 10.0, 500)
     ax[0].semilogy(t, 1e-2 * (t / 0.5) ** -1, color="0.45", lw=0.9, ls=(0, (1, 1.5)))
     ax[0].semilogy(t, 1e-2 * (np.sinh(t) / np.sinh(0.5)) ** -1.5,
                    color="0.45", lw=0.9, ls=(0, (1, 1.5)))
-    ax[0].text(6.2, 4e-4, r"$\propto a^{-3/2}=t^{-1}$", fontsize=9, color="0.35")
+    ax[0].text(6.2, 2e-3, r"$\propto a^{-3/2}=t^{-1}$", fontsize=9, color="0.35")
     ax[0].text(4.0, 3e-8, r"$\propto(\sinh t)^{-3/2}$", fontsize=9, color="0.35")
     ax[0].axvline(np.pi / 2, color="0.6", lw=0.8, ls=":")
-    ax[0].text(np.pi / 2 + 0.08, 2e-9, r"$t=\pi/2$ turnaround ($k=+1$)",
-               fontsize=8, rotation=90, color="0.35")
+    ax[0].text(np.pi / 2 + 0.08, 0.98, r"$t=\pi/2$",
+               transform=ax[0].get_xaxis_transform(), va="top",
+               fontsize=8, color="0.35")
     ax[0].set_xlabel("$t$")
     ax[0].set_ylabel(r"$|c_1(t)|$")
     ax[0].set_ylim(1e-10, 3e-2)
     ax[0].set_title("(a) relaxation of the lowest mode", fontsize=11)
-    ax[0].legend(frameon=False, loc="lower left")
+    ax[0].legend(frameon=False, loc="lower left", bbox_to_anchor=(0.20, 0.01))
 
     sol = relaxation(-1, lmin[-1], t1=50.0, rtol=1e-10, atol=1e-40)
     t = np.linspace(0.5, 50.0, 20000)
