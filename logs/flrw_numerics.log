@@ -1,5 +1,5 @@
-# Reference run of flrw_numerics.py
-# python 3.12.3 | numpy 2.4.4 | scipy 1.17.1 | matplotlib 3.10.8 | Linux x86_64
+# Fresh run 2026-10-23
+# python 3.12.14 | numpy 2.3.5 | scipy 1.17.0 | matplotlib 3.10.8
 
 
 Bogomolny bound: numerical 0.942809, exact 0.942809, relative error 2.7e-09
@@ -32,7 +32,7 @@ Table 5  (N=4000, lambda=v=a=1)
   Dirichlet, chi_min=1e-3, L=12      +1.999   +2.069   +3.069    1.00001   1.00000000
   Neumann (inner), L=8               +1.228   +2.030   +3.030    1.00038   1.00000000
 
-Departure from the box law at a coarse cutoff (chi_min = 0.05)
+Departure from the box law at a larger cutoff (chi_min = 0.05)
   S^3   box 2.0333   measured 1.9340   deficit 0.0993   phi_0=0.95v at chi=0.628
   R^3   box 2.1562   measured 2.1509   deficit 0.0053   phi_0=0.95v at chi=0.527
   H^3   box 3.1562   measured 3.1533   deficit 0.0028   phi_0=0.95v at chi=0.475
@@ -64,3 +64,22 @@ Vacuum control of the reduced model (a = sinh t, t = 20)
   vacuum field, p = 1               : |c| = 2.740e-11
   vacuum field, p = pi/(8 - 0.001)  : |c| = 5.065e-11
   reduced model, lam = 3.154194      : |c| = 1.422e-15
+
+Grid convergence of lambda_min (L=8, chi_min=0.001)
+  N       S^3          R^3          H^3
+  200    1.9993415    2.1541471    3.1541908
+  500    1.9993589    2.1541497    3.1541935
+ 1000    1.9993614    2.1541501    3.1541938
+ 2000    1.9993620    2.1541502    3.1541939
+ 4000    1.9993622    2.1541502    3.1541940
+
+Ground-mode overlap with the Dirichlet box sine
+  section      overlap
+  S^3        0.99999986
+  R^3        0.99999991
+  H^3        0.99999996
+
+Full one-at-a-time robustness scan: 20 parameter settings
+  PASS: positivity and S^3 < R^3 < H^3 held in every setting
+
+figures written to figs/flrw/
